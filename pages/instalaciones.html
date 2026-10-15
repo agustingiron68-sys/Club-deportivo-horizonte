@@ -6,54 +6,69 @@
   <meta name="description" content="Club Deportivo Horizonte - Instalaciones">
   <title>Instalaciones | Club Deportivo Horizonte</title>
   <link rel="icon" type="image/jpeg" href="../img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
-<body>
+<body class="pagina">
 
-  <header>
-    <a href="../index.html">
-      <img src="../img/logo.jpg" alt="Escudo del Club Deportivo Horizonte" width="100">
-    </a>
-    <nav>
-      <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="disciplinas.html">Disciplinas</a></li>
-          <li><a href="instalaciones.html">Instalaciones</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+  <header class="encabezado">
+    <div class="encabezado__contenido">
+      <a class="logo" href="../index.html">
+        <img class="logo__imagen" src="../img/logo.jpg" alt="Escudo del Club Deportivo Horizonte">
+      </a>
+      <nav class="menu" aria-label="Navegación principal">
+        <ul class="menu__lista">
+          <li class="menu__item"><a class="menu__enlace" href="../index.html">Inicio</a></li>
+          <li class="menu__item"><a class="menu__enlace" href="nosotros.html">Nosotros</a></li>
+          <li class="menu__item"><a class="menu__enlace" href="disciplinas.html">Disciplinas</a></li>
+          <li class="menu__item"><a class="menu__enlace menu__enlace--activo" href="instalaciones.html">Instalaciones</a></li>
+          <li class="menu__item"><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h1>Nuestras instalaciones</h1>
-      <p>Contamos con un predio equipado para entrenar y competir en las mejores condiciones.</p>
-      <figure>
-        <img src="../img/instalaciones.jpg" alt="Canchas para cada deporte del club" width="500">
-        <figcaption>Canchas para cada deporte del club</figcaption>
+  <main class="contenido">
+    <section class="seccion seccion--principal">
+      <h1 class="titulo-principal">Nuestras instalaciones</h1>
+      <p class="texto texto--destacado">Contamos con un predio equipado para entrenar y competir en las mejores condiciones.</p>
+      <figure class="figura figura--ancha">
+        <img class="figura__imagen" src="../img/instalaciones.jpg" alt="Canchas para cada deporte del club">
+        <figcaption class="figura__leyenda">Canchas para cada deporte del club</figcaption>
       </figure>
     </section>
 
-      <section>
-        <h2>Espacios del club</h2>
-        <p>Todos los espacios están pensados para el uso de socios y visitantes.</p>
-        <h3>Canchas</h3>
-        <p>Cancha de fútbol y cancha de básquet cubierta.</p>
-        <h3>Pileta</h3>
-        <p>Pileta climatizada con vestuarios.</p>
-        <h3>Buffet</h3>
-        <p>Espacio de encuentro para después de cada partido.</p>
-      </section>
-
+    <section class="seccion">
+      <h2 class="titulo-seccion">Espacios del club</h2>
+      <p class="texto">Todos los espacios están pensados para el uso de socios y visitantes.</p>
+      <div class="tarjetas">
+          <article class="tarjeta">
+            <h3 class="tarjeta__titulo">Canchas</h3>
+            <p class="texto">Cancha de fútbol y cancha de básquet cubierta.</p>
+          </article>
+          <article class="tarjeta">
+            <h3 class="tarjeta__titulo">Pileta</h3>
+            <p class="texto">Pileta climatizada con vestuarios.</p>
+          </article>
+          <article class="tarjeta">
+            <h3 class="tarjeta__titulo">Buffet</h3>
+            <p class="texto">Espacio de encuentro para después de cada partido.</p>
+          </article>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Club Deportivo Horizonte. Todos los derechos reservados.</p>
-    <ul>
-      <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
-      <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="https://x.com/" target="_blank" rel="noopener">X</a></li>
-    </ul>
+  <footer class="pie">
+    <div class="pie__contenido">
+      <p class="pie__texto">&copy; 2026 Club Deportivo Horizonte. Todos los derechos reservados.</p>
+      <ul class="pie__redes">
+        <li><a class="pie__enlace" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a class="pie__enlace" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a class="pie__enlace" href="https://x.com/" target="_blank" rel="noopener">X</a></li>
+      </ul>
+    </div>
   </footer>
 
 </body>
