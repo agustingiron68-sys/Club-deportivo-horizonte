@@ -1,5 +1,7 @@
 /* ==========================================================
    CLUB DEPORTIVO HORIZONTE - Hoja de estilos
+   Estrategia Mobile-First: el diseño base es para celular
+   y se amplía con media queries min-width (768px y 1024px).
    Paleta tomada del escudo: azul marino, azul petróleo y dorado
    ========================================================== */
 
@@ -24,13 +26,13 @@
 }
 
 
-/* ---------- 3. BASE ---------- */
+/* ---------- 3. BASE (mobile) ---------- */
 .pagina {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   font-family: 'Source Sans 3', Arial, sans-serif;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--color-texto);
   background-color: var(--color-fondo);
@@ -51,10 +53,11 @@ a {
 }
 
 
-/* ---------- 4. TIPOGRAFÍA ---------- */
+/* ---------- 4. TIPOGRAFÍA (mobile) ---------- */
 .titulo-principal {
+  grid-area: titulo;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 700;
   line-height: 1.15;
   color: var(--color-primario);
@@ -62,7 +65,7 @@ a {
 
 .titulo-seccion {
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  font-size: 2rem;
+  font-size: 1.625rem;
   font-weight: 500;
   line-height: 1.2;
   color: var(--color-secundario);
@@ -76,46 +79,46 @@ a {
 }
 
 .texto {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 400;
   max-width: 65ch;
 }
 
 .texto--destacado {
-  font-size: 1.25rem;
+  grid-area: texto;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--color-texto-suave);
 }
 
 
-/* ---------- 5. NAVBAR (Flexbox) ---------- */
+/* ---------- 5. NAVBAR (mobile: logo arriba y menú debajo) ---------- */
 .encabezado {
   background-color: var(--color-primario);
   border-bottom: 6px solid var(--color-acento);
 }
 
-/* Contenedor padre: logo a un extremo y menú al otro */
 .encabezado__contenido {
   display: flex;
-  justify-content: space-between;   /* extremos opuestos */
-  align-items: center;              /* centrado vertical */
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 12px 24px;
+  padding: 12px 16px;
 }
 
 .logo__imagen {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background-color: var(--color-superficie);
 }
 
-/* Contenedor de los enlaces */
 .menu__lista {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 8px;
 }
@@ -124,7 +127,7 @@ a {
   display: block;
   padding: 10px 20px;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 500;
   color: #ffffff;
   text-decoration: none;
@@ -147,16 +150,15 @@ a {
 }
 
 
-/* ---------- 6. CONTENIDO PRINCIPAL ---------- */
+/* ---------- 6. CONTENIDO PRINCIPAL (mobile: secciones apiladas) ---------- */
 .contenido {
   flex: 1;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 20px 16px;
 }
 
-/* Cada sección es un contenedor flex en columna: el gap separa sus hijos */
 .seccion {
   display: flex;
   flex-direction: column;
@@ -164,16 +166,30 @@ a {
   background-color: var(--color-superficie);
   border-left: 8px solid var(--color-secundario);
   border-radius: 6px;
-  padding: 32px;
-  margin-bottom: 32px;   /* separa una sección de la siguiente */
+  padding: 20px;
+  margin-bottom: 24px;   /* separa una sección de la siguiente */
 }
 
+/* Sección compleja con CSS Grid y áreas con nombre.
+   Mobile: 1 columna con título, texto e imagen apilados. */
 .seccion--principal {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "titulo"
+    "texto"
+    "imagen";
+  gap: 16px;
   border-left-color: var(--color-acento);
 }
 
 
 /* ---------- 7. IMÁGENES ---------- */
+.figura {
+  grid-area: imagen;
+  width: 100%;
+}
+
 .figura__imagen {
   width: 100%;
   border-radius: 6px;
@@ -198,18 +214,17 @@ a {
 }
 
 
-/* ---------- 8. TARJETAS (Flexbox) ---------- */
+/* ---------- 8. TARJETAS (mobile: una debajo de otra) ---------- */
 .tarjetas {
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .tarjeta {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex: 1 1 240px;   /* crecen parejo y pasan a la línea siguiente si no entran */
   background-color: var(--color-fondo);
   border-top: 4px solid var(--color-acento);
   border-radius: 4px;
@@ -217,7 +232,7 @@ a {
 }
 
 
-/* ---------- 9. PIE DE PÁGINA (Flexbox) ---------- */
+/* ---------- 9. PIE DE PÁGINA (mobile) ---------- */
 .pie {
   background-color: var(--color-primario);
   color: #ffffff;
@@ -226,13 +241,13 @@ a {
 
 .pie__contenido {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px 24px;
+  padding: 20px 16px;
+  text-align: center;
 }
 
 .pie__texto {
@@ -256,21 +271,93 @@ a {
 }
 
 
-/* ---------- 10. ADAPTACIÓN A CELULARES ---------- */
-@media (max-width: 600px) {
+/* ==========================================================
+   MEDIA QUERIES (siempre min-width: se suma, no se resta)
+   ========================================================== */
+
+/* ---------- 10. TABLET (desde 768px) ---------- */
+@media (min-width: 768px) {
+  .pagina {
+    font-size: 1.125rem;
+  }
+
   .titulo-principal {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
   }
 
   .titulo-seccion {
-    font-size: 1.625rem;
+    font-size: 2rem;
+  }
+
+  .texto {
+    font-size: 1.125rem;
+  }
+
+  .texto--destacado {
+    font-size: 1.25rem;
+  }
+
+  /* Navbar: logo a un extremo y menú al otro */
+  .encabezado__contenido {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+  }
+
+  .logo__imagen {
+    width: 80px;
+    height: 80px;
+  }
+
+  .contenido {
+    padding: 32px 24px;
   }
 
   .seccion {
-    padding: 20px;
+    padding: 32px;
+    margin-bottom: 32px;
   }
 
-  .encabezado__contenido {
-    justify-content: center;
+  /* Tarjetas en fila, repartiéndose el ancho por igual */
+  .tarjetas {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .tarjeta {
+    flex: 1 1 0;
+  }
+
+  /* Pie en fila */
+  .pie__contenido {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 24px;
+    text-align: left;
+  }
+}
+
+
+/* ---------- 11. ESCRITORIO (desde 1024px) ---------- */
+@media (min-width: 1024px) {
+  .titulo-principal {
+    font-size: 3rem;
+  }
+
+  /* La sección principal pasa de 1 a 2 columnas:
+     título y texto a la izquierda, imagen a la derecha */
+  .seccion--principal {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "titulo imagen"
+      "texto  imagen";
+    column-gap: 32px;
+    align-items: start;
+  }
+
+  .figura {
+    align-self: center;
   }
 }
