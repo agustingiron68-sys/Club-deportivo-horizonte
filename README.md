@@ -22,9 +22,10 @@ Las páginas de **Inicio**, **Nosotros** y **Disciplinas** están completamente 
 ## Tecnologías
 
 - **HTML5** semántico (`header`, `nav`, `main`, `section`, `article`, `footer`).
+- **SCSS (Sass)** con partials, variables, mixins, anidado y el operador `&`. El CSS final se genera compilando `scss/main.scss`.
 - **CSS3** con enfoque *mobile-first*: Flexbox, CSS Grid con `grid-template-areas` y media queries `min-width` (768 px y 1024 px).
 - **Bootstrap 5.3** por CDN: navbar responsiva con menú hamburguesa, carousel, acordeón y modal.
-- **Estilos propios** sobre Bootstrap, con la paleta del escudo: azul marino `#0b2a4a`, azul petróleo `#1f6f9a` y dorado `#f2b705`.
+- **Estilos propios** sobre Bootstrap, con la paleta del escudo: azul marino, azul petróleo y dorado (definidos en `scss/utilities/_variables.scss`).
 - Estados interactivos (`:hover`, `:focus-visible`, `:active`) con `transition`.
 - Fuentes de **Google Fonts**: Oswald y Source Sans 3.
 - **Git y GitHub** para el control de versiones, y **GitHub Pages** para publicar el sitio.
@@ -39,11 +40,51 @@ Club-deportivo-horizonte/
 │   ├── disciplinas.html
 │   ├── instalaciones.html
 │   └── contacto.html
-├── styles/
-│   └── styles.css
+├── scss/
+│   ├── main.scss              # único punto de entrada (con @use)
+│   ├── utilities/
+│   │   ├── _variables.scss
+│   │   └── _mixins.scss
+│   ├── base/
+│   │   ├── _base.scss
+│   │   └── _tipografia.scss
+│   ├── layout/
+│   │   ├── _header.scss
+│   │   ├── _nav.scss
+│   │   ├── _main.scss
+│   │   └── _footer.scss
+│   └── components/
+│       ├── _buttons.scss
+│       ├── _cards.scss
+│       ├── _figuras.scss
+│       ├── _galeria.scss
+│       ├── _acordeon.scss
+│       └── _modal.scss
+├── css/
+│   └── style.css              # generado al compilar, no se edita a mano
 ├── img/
 │   └── (logo e imágenes del sitio)
 └── README.md
+```
+
+## Cómo compilar los estilos
+
+El CSS no se escribe a mano: se genera a partir de los archivos `.scss`. Hace falta tener [Node.js](https://nodejs.org) y Sass instalados:
+
+```
+npm install -g sass
+```
+
+Para compilar una vez:
+
+```
+sass scss/main.scss css/style.css --no-source-map
+```
+
+Para que se recompile solo cada vez que se guarda un archivo `.scss`:
+
+```
+sass --watch scss/main.scss css/style.css --no-source-map
 ```
 
 ## Cómo verlo en tu computadora
