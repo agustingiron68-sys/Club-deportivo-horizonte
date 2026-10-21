@@ -1,0 +1,47 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- 1. REINICIO GLOBAL (Box Model) ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   // el padding y el border no agrandan los anchos
+}
+
+
+/* ---------- 2. BASE (mobile) ---------- */
+.pagina {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: $fuente-texto;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: $color-texto;
+  background-color: $color-fondo;
+
+  @include tablet {
+    font-size: 1.125rem;
+  }
+}
+
+/* Bootstrap agrega márgenes y rellenos a estas etiquetas: los quitamos
+   para seguir controlando el espaciado con gap */
+h1, h2, h3, p, ul, figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $color-secundario;
+}

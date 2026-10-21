@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+/* ==========================================================
+   MIXINS - Bloques de estilo reutilizables
+   ========================================================== */
+
+// Media query de tablet (desde 768px). Se usa así: @include tablet { ... }
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+// Media query de escritorio (desde 1024px)
+@mixin escritorio {
+  @media (min-width: $bp-escritorio) {
+    @content;
+  }
+}
+
+// Fuente de los títulos (Oswald) con tamaño y peso configurables
+@mixin fuente-titulos($tamano, $peso: 500) {
+  font-family: $fuente-titulos;
+  font-size: $tamano;
+  font-weight: $peso;
+}
+
+// Contenedor flex en columna con espacio uniforme entre sus hijos
+@mixin columna($separacion) {
+  display: flex;
+  flex-direction: column;
+  gap: $separacion;
+}
+
+// Contorno visible al navegar con teclado (estado :focus-visible)
+@mixin foco-visible($color: $color-acento, $separacion: 3px) {
+  outline: $grosor-foco solid $color;
+  outline-offset: $separacion;
+}

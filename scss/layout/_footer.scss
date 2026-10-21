@@ -1,0 +1,57 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- PIE DE PÁGINA (mobile) ---------- */
+.pie {
+  background-color: $color-primario;
+  color: $color-blanco;
+  border-top: $borde-grueso solid $color-acento;
+
+  &__contenido {
+    @include columna($espacio-12);
+    align-items: center;
+    max-width: $ancho-contenedor;
+    margin: 0 auto;
+    padding: $espacio-20 $espacio-16;
+    text-align: center;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: $espacio-20 $espacio-24;
+      text-align: left;
+    }
+  }
+
+  &__texto {
+    font-size: 1rem;
+  }
+
+  &__redes {
+    display: flex;
+    align-items: center;
+    gap: $espacio-20;
+  }
+
+  &__enlace {
+    display: inline-block;
+    color: $color-acento;
+    font-weight: 600;
+    transition: color $transicion-suave, transform $transicion-rapida;
+
+    &:hover {
+      color: $color-blanco;
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      color: $color-blanco;
+      @include foco-visible($color-acento);
+    }
+
+    &:active {
+      color: $color-acento;
+      transform: translateY(0);
+    }
+  }
+}

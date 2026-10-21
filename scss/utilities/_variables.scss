@@ -1,0 +1,65 @@
+/* ==========================================================
+   VARIABLES - Todos los valores que se repiten viven acá.
+   Si querés cambiar un color o una medida, se cambia una
+   sola vez en este archivo.
+   ========================================================== */
+
+
+/* ---------- Colores (paleta tomada del escudo) ---------- */
+$color-primario: #0b2a4a;        // azul marino
+$color-secundario: #1f6f9a;      // azul petróleo
+$color-acento: #f2b705;          // dorado
+$color-fondo: #eaf1f6;           // fondo de la página
+$color-superficie: #ffffff;      // tarjetas y secciones
+$color-texto: #1c2733;           // texto principal
+$color-texto-suave: #4a5a6a;     // texto secundario
+$color-blanco: #ffffff;
+$color-acordeon-presionado: #d5e3ed;
+
+/* Transparencias derivadas del azul marino */
+$velo-leyenda: rgba($color-primario, 0.88);
+$velo-control-hover: rgba($color-primario, 0.45);
+$velo-control-activo: rgba($color-primario, 0.7);
+
+
+/* ---------- Tipografía (siempre con fuente de respaldo) ---------- */
+$fuente-titulos: 'Oswald', 'Arial Narrow', sans-serif;
+$fuente-texto: 'Source Sans 3', Arial, sans-serif;
+
+
+/* ---------- Espaciado ---------- */
+$espacio-8: 8px;
+$espacio-10: 10px;
+$espacio-12: 12px;
+$espacio-16: 16px;
+$espacio-20: 20px;
+$espacio-24: 24px;
+$espacio-32: 32px;
+
+
+/* ---------- Bordes y radios ---------- */
+$borde-fino: 4px;
+$borde-grueso: 6px;
+$borde-lateral: 8px;
+$grosor-foco: 3px;
+$radio-chico: 4px;
+$radio-medio: 6px;
+$radio-circulo: 50%;
+
+
+/* ---------- Transiciones ---------- */
+$transicion-suave: 0.25s ease;
+$transicion-rapida: 0.15s ease;
+
+
+/* ---------- Medidas del layout ---------- */
+$ancho-contenedor: 1000px;
+
+
+/* ---------- Breakpoints (mobile-first: siempre min-width) ---------- */
+$bp-tablet: 768px;
+$bp-escritorio: 1024px;
+
+
+/* ---------- Ícono del acordeón abierto (flecha blanca) ---------- */
+$icono-acordeon-activo: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");

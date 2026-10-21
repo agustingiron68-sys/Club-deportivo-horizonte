@@ -1,0 +1,40 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- ENCABEZADO Y LOGO ---------- */
+.encabezado {
+  background-color: $color-primario;
+  border-bottom: $borde-grueso solid $color-acento;
+}
+
+.logo {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border-radius: $radio-circulo;
+  transition: transform $transicion-suave;
+
+  &__imagen {
+    width: 72px;
+    height: 72px;
+    border-radius: $radio-circulo;
+    background-color: $color-superficie;
+
+    @include tablet {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.06);
+  }
+
+  &:focus-visible {
+    @include foco-visible($color-acento, 4px);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}

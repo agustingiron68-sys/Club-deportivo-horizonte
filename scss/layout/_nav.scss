@@ -1,0 +1,81 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- NAVBAR DE BOOTSTRAP (personalizada) ---------- */
+
+/* Variables de Bootstrap redefinidas con nuestra paleta */
+.navbar-club {
+  --bs-navbar-color: #{$color-blanco};
+  --bs-navbar-hover-color: #{$color-blanco};
+  --bs-navbar-active-color: #{$color-primario};
+  --bs-navbar-nav-link-padding-x: #{$espacio-20};
+  padding: $espacio-12 0;
+}
+
+.navbar__contenedor {
+  max-width: $ancho-contenedor;
+  margin: 0 auto;
+  padding-left: $espacio-16;
+  padding-right: $espacio-16;
+}
+
+.menu {
+  // Botón hamburguesa (solo se ve en celular)
+  &__boton {
+    transition: background-color $transicion-suave, transform $transicion-rapida;
+
+    &:hover {
+      background-color: $color-secundario;
+    }
+
+    &:focus-visible {
+      @include foco-visible;
+      box-shadow: none;
+    }
+
+    &:active {
+      transform: scale(0.94);
+    }
+  }
+
+  &__lista {
+    --bs-nav-link-padding-x: #{$espacio-20};
+    --bs-nav-link-padding-y: #{$espacio-10};
+    gap: $espacio-8;
+    padding-top: $espacio-12;
+
+    @include tablet {
+      padding-top: 0;
+    }
+  }
+
+  // Enlaces del menú: estados interactivos con transición
+  &__enlace {
+    @include fuente-titulos(1.0625rem);
+    border-radius: $radio-chico;
+    transition: background-color $transicion-suave, color $transicion-suave, transform $transicion-rapida;
+
+    &:hover {
+      background-color: $color-secundario;
+    }
+
+    &:focus-visible {
+      @include foco-visible($color-acento, 2px);
+    }
+
+    &:active {
+      background-color: $color-primario;
+      transform: scale(0.96);
+    }
+
+    // Enlace de la página actual (queda dorado también al pasar el mouse)
+    &--activo {
+      background-color: $color-acento;
+
+      &:hover,
+      &:active {
+        background-color: $color-acento;
+      }
+    }
+  }
+}

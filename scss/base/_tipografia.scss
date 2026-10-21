@@ -1,0 +1,49 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- TIPOGRAFÍA (mobile) ---------- */
+.titulo-principal {
+  grid-area: titulo;
+  @include fuente-titulos(2.25rem, 700);
+  line-height: 1.15;
+  color: $color-primario;
+
+  @include tablet {
+    font-size: 2.75rem;
+  }
+
+  @include escritorio {
+    font-size: 3rem;
+  }
+}
+
+.titulo-seccion {
+  @include fuente-titulos(1.625rem);
+  line-height: 1.2;
+  color: $color-secundario;
+
+  @include tablet {
+    font-size: 2rem;
+  }
+}
+
+.texto {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  max-width: 65ch;
+
+  @include tablet {
+    font-size: 1.125rem;
+  }
+
+  &--destacado {
+    grid-area: texto;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $color-texto-suave;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+}

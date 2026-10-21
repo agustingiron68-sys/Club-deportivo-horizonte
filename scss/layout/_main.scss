@@ -1,0 +1,53 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- CONTENIDO PRINCIPAL (mobile: secciones apiladas) ---------- */
+.contenido {
+  flex: 1;
+  width: 100%;
+  max-width: $ancho-contenedor;
+  margin: 0 auto;
+  padding: $espacio-20 $espacio-16;
+
+  @include tablet {
+    padding: $espacio-32 $espacio-24;
+  }
+}
+
+.seccion {
+  @include columna($espacio-16);
+  background-color: $color-superficie;
+  border-left: $borde-lateral solid $color-secundario;
+  border-radius: $radio-medio;
+  padding: $espacio-20;
+  margin-bottom: $espacio-24;   // separa una sección de la siguiente
+
+  // Sección compleja con CSS Grid y áreas con nombre.
+  // Mobile: 1 columna con título, texto e imagen apilados.
+  &--principal {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "titulo"
+      "texto"
+      "imagen";
+    gap: $espacio-16;
+    border-left-color: $color-acento;
+
+    // Escritorio: pasa a 2 columnas (título y texto a la izquierda, imagen a la derecha)
+    @include escritorio {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        "titulo imagen"
+        "texto  imagen";
+      column-gap: $espacio-32;
+      align-items: start;
+    }
+  }
+
+  @include tablet {
+    padding: $espacio-32;
+    margin-bottom: $espacio-32;
+  }
+}
