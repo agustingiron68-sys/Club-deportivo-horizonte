@@ -1,0 +1,32 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- MODAL DE BOOTSTRAP ---------- */
+.ventana {
+  border: 0;
+  border-top: $borde-grueso solid $color-acento;
+  border-radius: $radio-medio;
+
+  &__titulo {
+    @include fuente-titulos(1.5rem);
+    color: $color-primario;
+  }
+
+  &__cerrar {
+    transition: opacity $transicion-suave, transform $transicion-rapida;
+
+    &:hover {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+
+    &:focus-visible {
+      outline: $grosor-foco solid $color-acento;
+      box-shadow: none;
+    }
+
+    &:active {
+      transform: rotate(90deg) scale(0.9);
+    }
+  }
+}

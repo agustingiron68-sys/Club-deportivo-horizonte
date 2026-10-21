@@ -1,0 +1,48 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- BOTONES (Bootstrap + paleta propia) ---------- */
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $espacio-12;
+}
+
+.boton {
+  --bs-btn-color: #{$color-primario};
+  --bs-btn-bg: #{$color-acento};
+  --bs-btn-border-color: #{$color-acento};
+  --bs-btn-hover-color: #{$color-blanco};
+  --bs-btn-hover-bg: #{$color-secundario};
+  --bs-btn-hover-border-color: #{$color-secundario};
+  --bs-btn-active-color: #{$color-blanco};
+  --bs-btn-active-bg: #{$color-primario};
+  --bs-btn-active-border-color: #{$color-primario};
+  --bs-btn-padding-x: #{$espacio-24};
+  --bs-btn-padding-y: #{$espacio-10};
+  @include fuente-titulos(1.0625rem);
+  transition: background-color $transicion-suave, color $transicion-suave,
+              border-color $transicion-suave, transform $transicion-rapida;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    @include foco-visible($color-primario);
+    box-shadow: none;
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  // Variante con borde (botón "Cerrar" del modal)
+  &--secundario {
+    --bs-btn-color: #{$color-primario};
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: #{$color-secundario};
+    --bs-btn-hover-bg: #{$color-secundario};
+    --bs-btn-hover-border-color: #{$color-secundario};
+  }
+}

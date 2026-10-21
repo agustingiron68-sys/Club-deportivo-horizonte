@@ -1,0 +1,77 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- GALERÍA: CAROUSEL DE BOOTSTRAP ---------- */
+.galeria {
+  &__marco {
+    border-radius: $radio-medio;
+    background-color: $color-fondo;
+  }
+
+  &__imagen {
+    height: 240px;
+    object-fit: contain;   // se ve la imagen completa, sin recortes
+    background-color: $color-fondo;
+
+    @include tablet {
+      height: 360px;
+    }
+
+    @include escritorio {
+      height: 440px;
+    }
+  }
+
+  &__leyenda {
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    padding: $espacio-8 $espacio-16;
+    background-color: $velo-leyenda;
+  }
+
+  &__titulo {
+    @include fuente-titulos(1.125rem);
+  }
+
+  // Flechas anterior / siguiente
+  &__control {
+    transition: opacity $transicion-suave, background-color $transicion-suave;
+
+    &:hover {
+      opacity: 1;
+      background-color: $velo-control-hover;
+    }
+
+    &:focus-visible {
+      opacity: 1;
+      @include foco-visible($color-acento, -3px);
+    }
+
+    &:active {
+      background-color: $velo-control-activo;
+    }
+  }
+}
+
+// Puntos indicadores
+.carousel-indicators {
+  .galeria__indicador {
+    background-color: $color-acento;
+    transition: opacity $transicion-suave, transform $transicion-suave;
+
+    &:hover {
+      opacity: 1;
+      transform: scaleY(2);
+    }
+
+    &:focus-visible {
+      opacity: 1;
+      @include foco-visible($color-blanco, 2px);
+    }
+
+    &:active {
+      transform: scaleY(1);
+    }
+  }
+}

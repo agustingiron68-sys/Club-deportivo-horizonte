@@ -1,0 +1,29 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+/* ---------- TARJETAS (mobile: una debajo de otra) ---------- */
+.tarjetas {
+  @include columna($espacio-16);
+
+  @include tablet {
+    flex-direction: row;
+    gap: $espacio-24;
+  }
+}
+
+.tarjeta {
+  @include columna($espacio-8);
+  background-color: $color-fondo;
+  border-top: $borde-fino solid $color-acento;
+  border-radius: $radio-chico;
+  padding: $espacio-20;
+
+  &__titulo {
+    @include fuente-titulos(1.375rem);
+    color: $color-primario;
+  }
+
+  @include tablet {
+    flex: 1 1 0;
+  }
+}

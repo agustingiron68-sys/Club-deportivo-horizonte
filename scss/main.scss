@@ -1,0 +1,32 @@
+/* ==========================================================
+   CLUB DEPORTIVO HORIZONTE - Archivo maestro de estilos
+   Único punto de entrada: reúne todos los partials con @use.
+   Compilar con:  sass scss/main.scss css/style.css
+   Mobile-First + Bootstrap por CDN (el CSS compilado se carga
+   DESPUÉS de Bootstrap para poder personalizarlo).
+   Paleta tomada del escudo: azul marino, azul petróleo y dorado
+   ========================================================== */
+
+// 1. Utilidades: variables y mixins
+@use "utilities/variables";
+@use "utilities/mixins";
+
+// 2. Base: reinicio y tipografía
+@use "base/base";
+@use "base/tipografia";
+
+// 3. Layout: encabezado, navbar y contenido
+@use "layout/header";
+@use "layout/nav";
+@use "layout/main";
+
+// 4. Componentes reutilizables
+@use "components/figuras";
+@use "components/cards";
+@use "components/buttons";
+@use "components/galeria";
+@use "components/acordeon";
+@use "components/modal";
+
+// 5. Pie de página
+@use "layout/footer";
