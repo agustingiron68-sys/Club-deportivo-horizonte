@@ -1,0 +1,12 @@
+@use "variables" as *;
+
+/* ==========================================================
+   PLACEHOLDERS - Reglas compartidas para usar con @extend.
+   No generan CSS por sí solos: solo se emiten para los
+   selectores que los extienden (.tarjeta, .figura__imagen).
+   ========================================================== */
+
+// Transición para elementos que suben y proyectan sombra (ver mixin elevar)
+%elemento-animado {
+  transition: transform $transicion-suave, box-shadow $transicion-suave;
+}

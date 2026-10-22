@@ -1,5 +1,6 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
 
 /* ---------- IMÁGENES ---------- */
 .figura {
@@ -7,8 +8,10 @@
   width: 100%;
 
   &__imagen {
+    @extend %elemento-animado;
     width: 100%;
     border-radius: $radio-medio;
+    @include elevar(2px, $sombra-suave);
   }
 
   &__leyenda {
@@ -18,15 +21,15 @@
   }
 
   &--escudo {
-    max-width: 320px;
+    max-width: $ancho-contenedor * 0.32;   // 320px
   }
 
   &--ancha {
-    max-width: 640px;
+    max-width: $ancho-contenedor * 0.64;   // 640px
   }
 
   &--vertical {
-    max-width: 340px;
+    max-width: $ancho-contenedor * 0.34;   // 340px
   }
 
   @include escritorio {

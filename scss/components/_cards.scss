@@ -1,5 +1,6 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
 
 /* ---------- TARJETAS (mobile: una debajo de otra) ---------- */
 .tarjetas {
@@ -12,11 +13,15 @@
 }
 
 .tarjeta {
+  @extend %elemento-animado;
   @include columna($espacio-8);
   background-color: $color-fondo;
   border-top: $borde-fino solid $color-acento;
   border-radius: $radio-chico;
   padding: $espacio-20;
+  min-width: 0;
+  overflow-wrap: anywhere;   // evita que un email largo se salga de la tarjeta en tablet
+  @include elevar;
 
   &__titulo {
     @include fuente-titulos(1.375rem);

@@ -10,6 +10,7 @@
 // 1. Utilidades: variables y mixins
 @use "utilities/variables";
 @use "utilities/mixins";
+@use "utilities/placeholders";
 
 // 2. Base: reinicio y tipografía
 @use "base/base";

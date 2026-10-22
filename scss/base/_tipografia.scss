@@ -1,5 +1,19 @@
+@use "sass:math";
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+
+/* ---------- ANIMACIÓN NATIVA: entrada del título principal ---------- */
+@keyframes entrada-titulo {
+  from {
+    opacity: 0;
+    transform: translateY(math.div($espacio-32, 2));   // 32px / 2 = 16px
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ---------- TIPOGRAFÍA (mobile) ---------- */
 .titulo-principal {
@@ -7,6 +21,7 @@
   @include fuente-titulos(2.25rem, 700);
   line-height: 1.15;
   color: $color-primario;
+  @include entrada(entrada-titulo);
 
   @include tablet {
     font-size: 2.75rem;
