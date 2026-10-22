@@ -30,6 +30,7 @@ Las cinco páginas están adaptadas a celular, tablet y escritorio, sin scroll h
 - **Animaciones nativas:** tarjetas e imágenes que suben con `transform` + `transition`, y entrada del título principal con `@keyframes`. Se desactivan si el sistema pide menos movimiento (`prefers-reduced-motion`).
 - **AOS 2.3.4** (por CDN) para animar secciones e imágenes al hacer scroll, iniciado desde `js/main.js`.
 - Fuentes de **Google Fonts**: Oswald y Source Sans 3.
+- **SEO on-page y accesibilidad:** `title` y `meta description` únicos en cada página, un solo `h1` con jerarquía `h1 > h2 > h3`, keywords integradas en título, encabezados y texto, `alt` descriptivo en todas las imágenes, nombres de imagen descriptivos, enlace "Saltar al contenido principal" y contraste de color AA (mínimo 4.5:1) en toda la paleta.
 - **Git y GitHub** para el control de versiones, y **GitHub Pages** para publicar el sitio.
 
 ## Estructura del proyecto
