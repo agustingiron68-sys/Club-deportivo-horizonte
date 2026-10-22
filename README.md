@@ -17,16 +17,18 @@ Sitio web de un club deportivo de barrio, desarrollado como proyecto del curso d
 | Instalaciones | `pages/instalaciones.html` |
 | Contacto | `pages/contacto.html` |
 
-Las páginas de **Inicio**, **Nosotros** y **Disciplinas** están completamente adaptadas a celular, tablet y escritorio. Las demás comparten la misma estructura y los mismos estilos.
+Las cinco páginas están adaptadas a celular, tablet y escritorio, sin scroll horizontal entre 375 px y 1400 px.
 
 ## Tecnologías
 
 - **HTML5** semántico (`header`, `nav`, `main`, `section`, `article`, `footer`).
-- **SCSS (Sass)** con partials, variables, mixins, anidado y el operador `&`. El CSS final se genera compilando `scss/main.scss`.
+- **SCSS (Sass)** con partials, variables, mixins con parámetros (`elevar`, `entrada`, `fuente-titulos`), `@extend` con placeholders (`%elemento-animado`), operadores (`*`, `math.div`), anidado y el operador `&`. El CSS final se genera compilando `scss/main.scss`.
 - **CSS3** con enfoque *mobile-first*: Flexbox, CSS Grid con `grid-template-areas` y media queries `min-width` (768 px y 1024 px).
 - **Bootstrap 5.3** por CDN: navbar responsiva con menú hamburguesa, carousel, acordeón y modal.
 - **Estilos propios** sobre Bootstrap, con la paleta del escudo: azul marino, azul petróleo y dorado (definidos en `scss/utilities/_variables.scss`).
 - Estados interactivos (`:hover`, `:focus-visible`, `:active`) con `transition`.
+- **Animaciones nativas:** tarjetas e imágenes que suben con `transform` + `transition`, y entrada del título principal con `@keyframes`. Se desactivan si el sistema pide menos movimiento (`prefers-reduced-motion`).
+- **AOS 2.3.4** (por CDN) para animar secciones e imágenes al hacer scroll, iniciado desde `js/main.js`.
 - Fuentes de **Google Fonts**: Oswald y Source Sans 3.
 - **Git y GitHub** para el control de versiones, y **GitHub Pages** para publicar el sitio.
 
@@ -44,7 +46,8 @@ Club-deportivo-horizonte/
 │   ├── main.scss              # único punto de entrada (con @use)
 │   ├── utilities/
 │   │   ├── _variables.scss
-│   │   └── _mixins.scss
+│   │   ├── _mixins.scss
+│   │   └── _placeholders.scss
 │   ├── base/
 │   │   ├── _base.scss
 │   │   └── _tipografia.scss
@@ -60,6 +63,8 @@ Club-deportivo-horizonte/
 │       ├── _galeria.scss
 │       ├── _acordeon.scss
 │       └── _modal.scss
+├── js/
+│   └── main.js                # inicia AOS
 ├── css/
 │   └── style.css              # generado al compilar, no se edita a mano
 ├── img/

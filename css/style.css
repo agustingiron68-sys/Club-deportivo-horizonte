@@ -18,12 +18,23 @@
 /* ---------- Espaciado ---------- */
 /* ---------- Bordes y radios ---------- */
 /* ---------- Transiciones ---------- */
+/* ---------- Sombras (derivadas del azul marino) ---------- */
+/* ---------- Animaciones ---------- */
 /* ---------- Medidas del layout ---------- */
 /* ---------- Breakpoints (mobile-first: siempre min-width) ---------- */
 /* ---------- Ícono del acordeón abierto (flecha blanca) ---------- */
 /* ==========================================================
    MIXINS - Bloques de estilo reutilizables
    ========================================================== */
+/* ==========================================================
+   PLACEHOLDERS - Reglas compartidas para usar con @extend.
+   No generan CSS por sí solos: solo se emiten para los
+   selectores que los extienden (.tarjeta, .figura__imagen).
+   ========================================================== */
+.tarjeta, .figura__imagen {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
 /* ---------- 1. REINICIO GLOBAL (Box Model) ---------- */
 * {
   margin: 0;
@@ -69,6 +80,27 @@ a {
   color: #1f6f9a;
 }
 
+/* ---------- 3. ACCESIBILIDAD: menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* ---------- ANIMACIÓN NATIVA: entrada del título principal ---------- */
+@keyframes entrada-titulo {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* ---------- TIPOGRAFÍA (mobile) ---------- */
 .titulo-principal {
   grid-area: titulo;
@@ -77,6 +109,7 @@ a {
   font-weight: 700;
   line-height: 1.15;
   color: #0b2a4a;
+  animation: entrada-titulo 0.6s ease-out 0s both;
 }
 @media (min-width: 768px) {
   .titulo-principal {
@@ -283,6 +316,10 @@ a {
   width: 100%;
   border-radius: 6px;
 }
+.figura__imagen:hover, .figura__imagen:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(11, 42, 74, 0.12);
+}
 .figura__leyenda {
   margin-top: 8px;
   font-size: 0.95rem;
@@ -324,6 +361,12 @@ a {
   border-top: 4px solid #f2b705;
   border-radius: 4px;
   padding: 20px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.tarjeta:hover, .tarjeta:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(11, 42, 74, 0.22);
 }
 .tarjeta__titulo {
   font-family: "Oswald", "Arial Narrow", sans-serif;
