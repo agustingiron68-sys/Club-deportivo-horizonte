@@ -1,5 +1,6 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
 
 /* ---------- ENCABEZADO Y LOGO ---------- */
 .encabezado {
@@ -8,16 +9,16 @@
 }
 
 .logo {
+  @extend %circulo;
   display: block;
   padding: 0;
   margin: 0;
-  border-radius: $radio-circulo;
   transition: transform $transicion-suave;
 
   &__imagen {
+    @extend %circulo;
     width: 72px;
     height: 72px;
-    border-radius: $radio-circulo;
     background-color: $color-superficie;
 
     @include tablet {

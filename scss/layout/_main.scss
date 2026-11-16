@@ -1,12 +1,12 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
 
 /* ---------- CONTENIDO PRINCIPAL (mobile: secciones apiladas) ---------- */
 .contenido {
+  @extend %contenedor-centrado;
   flex: 1;
   width: 100%;
-  max-width: $ancho-contenedor;
-  margin: 0 auto;
   padding: $espacio-20 $espacio-16;
 
   @include tablet {

@@ -52,16 +52,6 @@ $transicion-suave: 0.25s ease;
 $transicion-rapida: 0.15s ease;
 
 
-/* ---------- Sombras (derivadas del azul marino) ---------- */
-$sombra-suave: 0 2px 6px rgba($color-primario, 0.12);
-$sombra-elevada: 0 10px 24px rgba($color-primario, 0.22);
-
-
-/* ---------- Animaciones ---------- */
-$duracion-entrada: 0.6s;           // animación de entrada con @keyframes
-$desplazamiento-elevar: 4px;       // cuánto sube un elemento al pasar el mouse
-
-
 /* ---------- Medidas del layout ---------- */
 $ancho-contenedor: 1000px;
 
@@ -69,6 +59,7 @@ $ancho-contenedor: 1000px;
 /* ---------- Breakpoints (mobile-first: siempre min-width) ---------- */
 $bp-tablet: 768px;
 $bp-escritorio: 1024px;
+$bp-navbar: 992px;           // la navbar de Bootstrap se expande desde acá (navbar-expand-lg)
 
 
 /* ---------- Ícono del acordeón abierto (flecha blanca) ---------- */

@@ -1,0 +1,13 @@
+/* ---------- ANIMACIONES NATIVAS (@keyframes) ---------- */
+// Se aplican con el mixin animar() de utilities/_mixins.scss
+@keyframes aparecer-arriba {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

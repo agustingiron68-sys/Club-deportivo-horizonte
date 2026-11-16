@@ -1,12 +1,18 @@
 @use "variables" as *;
 
 /* ==========================================================
-   PLACEHOLDERS - Reglas compartidas para usar con @extend.
-   No generan CSS por sí solos: solo se emiten para los
-   selectores que los extienden (.tarjeta, .figura__imagen).
+   PLACEHOLDERS - Estilos compartidos para usar con @extend
+   (un placeholder no genera CSS por sí solo: se arma con los
+   selectores que lo extienden)
    ========================================================== */
 
-// Transición para elementos que suben y proyectan sombra (ver mixin elevar)
-%elemento-animado {
-  transition: transform $transicion-suave, box-shadow $transicion-suave;
+// Contenedor centrado con el ancho máximo del sitio
+%contenedor-centrado {
+  max-width: $ancho-contenedor;
+  margin: 0 auto;
+}
+
+// Elementos redondos (logo)
+%circulo {
+  border-radius: $radio-circulo;
 }

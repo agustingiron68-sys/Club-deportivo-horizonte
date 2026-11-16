@@ -32,30 +32,23 @@
   gap: $separacion;
 }
 
-// Elevación al pasar el mouse o al enfocar dentro: el elemento sube y suma sombra.
-// Parámetros: cuánto sube y qué sombra usa (el operador * -1 lo mueve hacia arriba).
-@mixin elevar($desplazamiento: $desplazamiento-elevar, $sombra: $sombra-elevada) {
-  &:hover,
-  &:focus-within {
-    transform: translateY($desplazamiento * -1);
-    box-shadow: $sombra;
-  }
-}
-
-// Animación de entrada con @keyframes: nombre, duración y retraso configurables
-@mixin entrada($nombre, $duracion: $duracion-entrada, $retraso: 0s) {
-  animation: $nombre $duracion ease-out $retraso both;
-}
-
-// Contenido que solo se aplica si la persona pidió menos movimiento en su sistema
-@mixin sin-movimiento {
-  @media (prefers-reduced-motion: reduce) {
-    @content;
-  }
-}
-
 // Contorno visible al navegar con teclado (estado :focus-visible)
 @mixin foco-visible($color: $color-acento, $separacion: 3px) {
   outline: $grosor-foco solid $color;
   outline-offset: $separacion;
+}
+
+// Media query de la navbar de Bootstrap (desde 992px, igual que navbar-expand-lg)
+@mixin navbar-expandida {
+  @media (min-width: $bp-navbar) {
+    @content;
+  }
+}
+
+// Animación nativa con @keyframes. Solo se aplica si la persona no pidió
+// "reducir movimiento" en su sistema (accesibilidad).
+@mixin animar($nombre, $duracion: 0.8s, $retraso: 0s) {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: $nombre $duracion ease-out $retraso both;
+  }
 }

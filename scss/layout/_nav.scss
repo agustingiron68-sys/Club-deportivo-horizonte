@@ -1,5 +1,6 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
 
 /* ---------- NAVBAR DE BOOTSTRAP (personalizada) ---------- */
 
@@ -13,8 +14,7 @@
 }
 
 .navbar__contenedor {
-  max-width: $ancho-contenedor;
-  margin: 0 auto;
+  @extend %contenedor-centrado;
   padding-left: $espacio-16;
   padding-right: $espacio-16;
 }
@@ -44,7 +44,7 @@
     gap: $espacio-8;
     padding-top: $espacio-12;
 
-    @include tablet {
+    @include navbar-expandida {
       padding-top: 0;
     }
   }
