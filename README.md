@@ -1,10 +1,10 @@
 # Club Deportivo Horizonte
 
-Sitio web de un club deportivo de barrio, desarrollado como proyecto del curso de **Desarrollo Web** de Coderhouse.
+Sitio web estático de 5 páginas para un club deportivo de barrio. Proyecto final del curso de **Desarrollo Web** de Coderhouse.
 
-## Sitio publicado
+## Sitio desplegado
 
-- **Ver el sitio:** https://agustingiron68-sys.github.io/Club-deportivo-horizonte/
+- **Netlify / Vercel:** https://startling-lily-f40c5b.netlify.app
 - **Repositorio:** https://github.com/agustingiron68-sys/Club-deportivo-horizonte
 
 ## Páginas
@@ -17,21 +17,17 @@ Sitio web de un club deportivo de barrio, desarrollado como proyecto del curso d
 | Instalaciones | `pages/instalaciones.html` |
 | Contacto | `pages/contacto.html` |
 
-Las cinco páginas están adaptadas a celular, tablet y escritorio, sin scroll horizontal entre 375 px y 1400 px.
+Las 5 páginas son responsivas (celular, tablet y escritorio), sin scroll horizontal.
 
 ## Tecnologías
 
-- **HTML5** semántico (`header`, `nav`, `main`, `section`, `article`, `footer`).
-- **SCSS (Sass)** con partials, variables, mixins con parámetros (`elevar`, `entrada`, `fuente-titulos`), `@extend` con placeholders (`%elemento-animado`), operadores (`*`, `math.div`), anidado y el operador `&`. El CSS final se genera compilando `scss/main.scss`.
-- **CSS3** con enfoque *mobile-first*: Flexbox, CSS Grid con `grid-template-areas` y media queries `min-width` (768 px y 1024 px).
-- **Bootstrap 5.3** por CDN: navbar responsiva con menú hamburguesa, carousel, acordeón y modal.
-- **Estilos propios** sobre Bootstrap, con la paleta del escudo: azul marino, azul petróleo y dorado (definidos en `scss/utilities/_variables.scss`).
-- Estados interactivos (`:hover`, `:focus-visible`, `:active`) con `transition`.
-- **Animaciones nativas:** tarjetas e imágenes que suben con `transform` + `transition`, y entrada del título principal con `@keyframes`. Se desactivan si el sistema pide menos movimiento (`prefers-reduced-motion`).
-- **AOS 2.3.4** (por CDN) para animar secciones e imágenes al hacer scroll, iniciado desde `js/main.js`.
+- **HTML5** semántico (`header`, `nav`, `main`, `section`, `article`, `footer`) y **SEO**: `title`, `meta description` y `meta keywords` únicos en cada página, y `alt` en todas las imágenes.
+- **SCSS (Sass)** con arquitectura de partials: variables, anidado con `&`, mixins con parámetros, `@extend` con placeholders y `@keyframes`. `main.scss` solo contiene los `@use`.
+- **Bootstrap 5.3** por CDN: navbar responsiva con menú hamburguesa, carousel, acordeón y modal, todos personalizados desde SCSS con la paleta del escudo.
+- **CSS Grid y Flexbox** con enfoque *mobile-first* y media queries `min-width` (768 px, 992 px y 1024 px).
+- **Animaciones:** nativas (`transition` y `@keyframes`) y con la librería **AOS** (animaciones al hacer scroll).
 - Fuentes de **Google Fonts**: Oswald y Source Sans 3.
-- **SEO on-page y accesibilidad:** `title` y `meta description` únicos en cada página, un solo `h1` con jerarquía `h1 > h2 > h3`, keywords integradas en título, encabezados y texto, `alt` descriptivo en todas las imágenes, nombres de imagen descriptivos, enlace "Saltar al contenido principal" y contraste de color AA (mínimo 4.5:1) en toda la paleta.
-- **Git y GitHub** para el control de versiones, y **GitHub Pages** para publicar el sitio.
+- **Git y GitHub** para el control de versiones. Despliegue en Netlify / Vercel.
 
 ## Estructura del proyecto
 
@@ -44,14 +40,15 @@ Club-deportivo-horizonte/
 │   ├── instalaciones.html
 │   └── contacto.html
 ├── scss/
-│   ├── main.scss              # único punto de entrada (con @use)
+│   ├── main.scss              # solo @use de los partials
 │   ├── utilities/
 │   │   ├── _variables.scss
 │   │   ├── _mixins.scss
 │   │   └── _placeholders.scss
 │   ├── base/
 │   │   ├── _base.scss
-│   │   └── _tipografia.scss
+│   │   ├── _tipografia.scss
+│   │   └── _animaciones.scss
 │   ├── layout/
 │   │   ├── _header.scss
 │   │   ├── _nav.scss
@@ -64,12 +61,10 @@ Club-deportivo-horizonte/
 │       ├── _galeria.scss
 │       ├── _acordeon.scss
 │       └── _modal.scss
-├── js/
-│   └── main.js                # inicia AOS
-├── css/
-│   └── style.css              # generado al compilar, no se edita a mano
-├── img/
-│   └── (logo e imágenes del sitio)
+├── styles/
+│   └── style.css              # CSS compilado, no se edita a mano
+├── assets/
+│   └── img/                   # logo e imágenes del sitio
 └── README.md
 ```
 
@@ -84,13 +79,13 @@ npm install -g sass
 Para compilar una vez:
 
 ```
-sass scss/main.scss css/style.css --no-source-map
+sass scss/main.scss styles/style.css --no-source-map
 ```
 
 Para que se recompile solo cada vez que se guarda un archivo `.scss`:
 
 ```
-sass --watch scss/main.scss css/style.css --no-source-map
+sass --watch scss/main.scss styles/style.css --no-source-map
 ```
 
 ## Cómo verlo en tu computadora
@@ -99,8 +94,8 @@ sass --watch scss/main.scss css/style.css --no-source-map
    ```
    git clone https://github.com/agustingiron68-sys/Club-deportivo-horizonte.git
    ```
-2. Abrí `index.html` en el navegador. Se necesita conexión a internet para cargar Bootstrap y las fuentes.
+2. Abrí `index.html` en el navegador. Se necesita conexión a internet para cargar Bootstrap, AOS y las fuentes.
 
 ## Autor
 
-Agustin - Proyecto del curso de Desarrollo Web, Coderhouse.
+Agustin - Proyecto final del curso de Desarrollo Web, Coderhouse.
